@@ -16,15 +16,15 @@ sudo git clone https://github.com/ghostbusker/TrafficLightPi/TrafficLightPi.py
 sudo chmod +x TrafficLightPi.py
 
 # create systemd service file
-sudo touch /lib/systemd/system/trafficlittle.service
-cat <<EOF >> /lib/systemd/system/trafficlittle.service                        
+sudo touch /lib/systemd/system/trafficlightpi.service
+cat <<EOF >/lib/systemd/system/trafficlightpi.service                        
 [Unit]
-Description=run trafficlittle.py at startup
+Description=run trafficlightpi.py at startup
 After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /home/pi/trafficlittle.py
+ExecStart=/usr/bin/python3 /home/pi/TrafficLightPi.py    ###THIS LINE ASSUMES YOUR USERNAME IS "pi"###
 Restart=on-abort
 
 [Install]
