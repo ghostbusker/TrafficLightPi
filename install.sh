@@ -1,9 +1,13 @@
 #!/bin/bash
 ### initial TrafficLightPi setup script
 
+# add log2ram repositories need for apt install, improves SD card stability
+echo "deb [signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bullseye main" | sudo tee /etc/apt/sources.list.d/azlux.list
+sudo wget -O /usr/share/keyrings/azlux-archive-keyring.gpg  https://azlux.fr/repo.gpg
+
 # update & install needed software
 sudo apt update
-sudo apt install -y git python3-pip
+sudo apt install -y git python3-pip log2ram
 sudo pip3 install -y ping3
 
 # download script to home directory and make executable
